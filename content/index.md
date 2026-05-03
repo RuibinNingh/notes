@@ -5,6 +5,8 @@ tags: []
 publish: true
 description: ""
 ---
+![[Pasted image 20260503212238.png]]
+
 欢迎来到我的笔记站
 
 使用Obsidian搭载[Quartz](https://quartz.jzhao.xyz/)构建
