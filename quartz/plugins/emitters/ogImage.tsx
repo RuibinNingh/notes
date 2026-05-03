@@ -100,6 +100,20 @@ async function processOgImage(
   })
 }
 
+function getOgText(ctx: BuildCtx, fileData: QuartzPluginData) {
+  const cfg = ctx.cfg.configuration
+  const titleSuffix = cfg.pageTitleSuffix ?? ""
+  const title =
+    (fileData.frontmatter?.title ?? i18n(cfg.locale).propertyDefaults.title) + titleSuffix
+  const description =
+    fileData.frontmatter?.socialDescription ??
+    fileData.frontmatter?.description ??
+    unescapeHTML(fileData.description?.trim() ?? i18n(cfg.locale).propertyDefaults.description)
+  const tags = fileData.frontmatter?.tags?.join("") ?? ""
+
+  return `${cfg.pageTitle}${cfg.baseUrl}${title}${description}${tags}`
+}
+
 export const CustomOgImagesEmitterName = "CustomOgImages"
 export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = (userOpts) => {
   const fullOptions = { ...defaultOptions, ...userOpts }
@@ -113,7 +127,11 @@ export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = 
       const cfg = ctx.cfg.configuration
       const headerFont = cfg.theme.typography.header
       const bodyFont = cfg.theme.typography.body
-      const fonts = await getSatoriFonts(headerFont, bodyFont)
+      const ogText = content
+        .filter(([_tree, vfile]) => vfile.data.frontmatter?.socialImage === undefined)
+        .map(([_tree, vfile]) => getOgText(ctx, vfile.data))
+        .join("")
+      const fonts = await getSatoriFonts(headerFont, bodyFont, ogText)
 
       for (const [_tree, vfile] of content) {
         if (vfile.data.frontmatter?.socialImage !== undefined) continue
@@ -124,7 +142,11 @@ export const CustomOgImages: QuartzEmitterPlugin<Partial<SocialImageOptions>> = 
       const cfg = ctx.cfg.configuration
       const headerFont = cfg.theme.typography.header
       const bodyFont = cfg.theme.typography.body
-      const fonts = await getSatoriFonts(headerFont, bodyFont)
+      const ogText = changeEvents
+        .filter((changeEvent) => changeEvent.file?.data.frontmatter?.socialImage === undefined)
+        .map((changeEvent) => (changeEvent.file ? getOgText(ctx, changeEvent.file.data) : ""))
+        .join("")
+      const fonts = await getSatoriFonts(headerFont, bodyFont, ogText)
 
       // find all slugs that changed or were added
       for (const changeEvent of changeEvents) {

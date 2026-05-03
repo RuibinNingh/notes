@@ -10,11 +10,20 @@ import { formatDate, getDate } from "../components/Date"
 import readingTime from "reading-time"
 import { i18n } from "../i18n"
 import { styleText } from "util"
+import { createHash } from "crypto"
 
 const defaultHeaderWeight = [700]
 const defaultBodyWeight = [400]
+const cjkSansFont = "Noto Sans SC"
+const cjkSerifFont = "Noto Serif SC"
+const defaultOgFontText =
+  "Ruibin 的数字花园我的博客分钟阅读年月日0123456789#:-_/.,abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: FontSpecification) {
+export async function getSatoriFonts(
+  headerFont: FontSpecification,
+  bodyFont: FontSpecification,
+  text = "",
+) {
   // Get all weights for header and body fonts
   const headerWeights: FontWeight[] = (
     typeof headerFont === "string"
@@ -27,10 +36,11 @@ export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: Fo
 
   const headerFontName = typeof headerFont === "string" ? headerFont : headerFont.name
   const bodyFontName = typeof bodyFont === "string" ? bodyFont : bodyFont.name
+  const fontText = `${defaultOgFontText}${text}`
 
   // Fetch fonts for all weights and convert to satori format in one go
   const headerFontPromises = headerWeights.map(async (weight) => {
-    const data = await fetchTtf(headerFontName, weight)
+    const data = await fetchTtf(headerFontName, weight, fontText)
     if (!data) return null
     return {
       name: headerFontName,
@@ -41,7 +51,7 @@ export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: Fo
   })
 
   const bodyFontPromises = bodyWeights.map(async (weight) => {
-    const data = await fetchTtf(bodyFontName, weight)
+    const data = await fetchTtf(bodyFontName, weight, fontText)
     if (!data) return null
     return {
       name: bodyFontName,
@@ -51,15 +61,32 @@ export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: Fo
     }
   })
 
-  const [headerFonts, bodyFonts] = await Promise.all([
+  const cjkFontPromises = [
+    { name: cjkSansFont, weight: 400 as FontWeight },
+    { name: cjkSansFont, weight: 700 as FontWeight },
+    { name: cjkSerifFont, weight: 400 as FontWeight },
+  ].map(async ({ name, weight }) => {
+    const data = await fetchTtf(name, weight, fontText)
+    if (!data) return null
+    return {
+      name,
+      data,
+      weight,
+      style: "normal" as const,
+    }
+  })
+
+  const [headerFonts, bodyFonts, cjkFonts] = await Promise.all([
     Promise.all(headerFontPromises),
     Promise.all(bodyFontPromises),
+    Promise.all(cjkFontPromises),
   ])
 
   // Filter out any failed fetches and combine header and body fonts
   const fonts: SatoriOptions["fonts"] = [
     ...headerFonts.filter((font): font is NonNullable<typeof font> => font !== null),
     ...bodyFonts.filter((font): font is NonNullable<typeof font> => font !== null),
+    ...cjkFonts.filter((font): font is NonNullable<typeof font> => font !== null),
   ]
 
   return fonts
@@ -74,9 +101,11 @@ export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: Fo
 export async function fetchTtf(
   rawFontName: string,
   weight: FontWeight,
+  text = "",
 ): Promise<Buffer<ArrayBufferLike> | undefined> {
   const fontName = rawFontName.replaceAll(" ", "+")
-  const cacheKey = `${fontName}-${weight}`
+  const textHash = text ? `-${createHash("sha256").update(text).digest("hex").slice(0, 16)}` : ""
+  const cacheKey = `${fontName}-${weight}${textHash}`
   const cacheDir = path.join(QUARTZ, ".quartz-cache", "fonts")
   const cachePath = path.join(cacheDir, cacheKey)
 
@@ -89,13 +118,14 @@ export async function fetchTtf(
   }
 
   // Get css file from google fonts
+  const textParam = text ? `&text=${encodeURIComponent(text)}` : ""
   const cssResponse = await fetch(
-    `https://fonts.googleapis.com/css2?family=${fontName}:wght@${weight}`,
+    `https://fonts.googleapis.com/css2?family=${fontName}:wght@${weight}${textParam}`,
   )
   const css = await cssResponse.text()
 
-  // Extract .ttf url from css file
-  const urlRegex = /url\((https:\/\/fonts.gstatic.com\/s\/.*?.ttf)\)/g
+  // Extract the truetype font URL from the css file.
+  const urlRegex = /url\((https:\/\/fonts\.gstatic\.com\/[^)]+)\)\sformat\('truetype'\)/g
   const match = urlRegex.exec(css)
 
   if (!match) {
@@ -197,6 +227,8 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
   const tags = fileData.frontmatter?.tags ?? []
   const bodyFont = getFontSpecificationName(cfg.theme.typography.body)
   const headerFont = getFontSpecificationName(cfg.theme.typography.header)
+  const sansFontFamily = `${headerFont}, ${cjkSansFont}`
+  const serifFontFamily = `${bodyFont}, ${cjkSerifFont}`
 
   return (
     <div
@@ -207,7 +239,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
         width: "100%",
         backgroundColor: cfg.theme.colors[colorScheme].light,
         padding: "2.5rem",
-        fontFamily: bodyFont,
+        fontFamily: serifFontFamily,
       }}
     >
       {/* Header Section */}
@@ -234,7 +266,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
             display: "flex",
             fontSize: 32,
             color: cfg.theme.colors[colorScheme].gray,
-            fontFamily: bodyFont,
+            fontFamily: sansFontFamily,
           }}
         >
           {cfg.baseUrl}
@@ -253,7 +285,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
           style={{
             margin: 0,
             fontSize: useSmallerFont ? 64 : 72,
-            fontFamily: headerFont,
+            fontFamily: sansFontFamily,
             fontWeight: 700,
             color: cfg.theme.colors[colorScheme].dark,
             lineHeight: 1.2,
@@ -276,6 +308,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
           fontSize: 36,
           color: cfg.theme.colors[colorScheme].darkgray,
           lineHeight: 1.4,
+          fontFamily: serifFontFamily,
         }}
       >
         <p
@@ -311,6 +344,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
             gap: "2rem",
             color: cfg.theme.colors[colorScheme].gray,
             fontSize: 28,
+            fontFamily: sansFontFamily,
           }}
         >
           {date && (
@@ -366,6 +400,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
                 color: cfg.theme.colors[colorScheme].secondary,
                 borderRadius: "10px",
                 fontSize: 24,
+                fontFamily: sansFontFamily,
               }}
             >
               #{tag}
