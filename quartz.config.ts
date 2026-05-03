@@ -17,7 +17,7 @@ const config: QuartzConfig = {
     },
     locale: "zh-CN",
     baseUrl: "notes.ruibin-ningh.top",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", "templates", ".obsidian","00-Templates"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
