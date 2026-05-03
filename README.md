@@ -3,7 +3,7 @@
     <img src="./quartz/static/icon.png" alt="Notes icon" width="96" height="96" />
   </a>
 
-  <h1>Ruibin 的数字花园</h1>
+  <h1>Ruibin_Ningh的数字花园</h1>
 
   <p>基于 Quartz 搭建的个人笔记与博客。</p>
 
@@ -13,3 +13,7 @@
     <a href="https://github.com/RuibinNingh/notes">GitHub 仓库</a>
   </p>
 </div>
+
+<p align="center">
+  <img src="./quartz/static/og-image.png" alt="Ruibin 的数字花园预览图" width="720" />
+</p>
