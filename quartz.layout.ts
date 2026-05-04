@@ -5,7 +5,22 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Comments({
+      provider: "giscus",
+      options: {
+        repo: "RuibinNingh/notes",
+        repoId: "R_kgDOSS-eSQ",
+        category: "Announcements",
+        categoryId: "DIC_kwDOSS-eSc4C8S1h",
+        mapping: "pathname",
+        strict: false,
+        reactionsEnabled: true,
+        inputPosition: "bottom",
+        lang: "zh-CN",
+      },
+    }),
+  ],
   footer: Component.Footer({
     links: {
       我的博客: "https://www.ruibin-ningh.top",
