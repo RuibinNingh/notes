@@ -13,7 +13,9 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: "umami",
+      websiteId: "d25ff9c9-2d15-407d-8337-2aaaa678ee77",
+      host: "https://umami.ruibin-ningh.top",
     },
     locale: "zh-CN",
     baseUrl: "notes.ruibin-ningh.top",
