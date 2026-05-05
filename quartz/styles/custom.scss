@@ -3,9 +3,12 @@
 // put your custom CSS here!
 
 :root {
-  --cl-serif: 'Source Serif 4', 'Noto Serif SC', Georgia, 'Times New Roman', 'Songti SC', 'SimSun', serif;
-  --cl-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  --cl-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, 'Noto Sans Mono', monospace;
+  --cl-serif:
+    "Source Serif 4", "Noto Serif SC", Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
+  --cl-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  --cl-mono: "JetBrains Mono", "Fira Code", "SF Mono", Consolas, "Noto Sans Mono", monospace;
 }
 
 /* Global UI / headings / navigation: sans-serif */
@@ -97,15 +100,6 @@ article code:not(pre code) {
 .katex-display > .katex {
   display: inline-block;
   text-align: initial;
-}
-
-/* Single formula paragraph rendered as inline KaTeX */
-article p:has(> .katex:only-child) {
-  text-align: center;
-}
-
-article p:has(> .katex:only-child) > .katex {
-  display: inline-block;
 }
 
 /* Table headers: sans-serif */
