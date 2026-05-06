@@ -1,5 +1,42 @@
 @use "./base.scss";
 
+// @font-face: Source Serif 4 + Noto Serif SC (subsetted, offline)
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal; font-weight: 400;
+  src: url("/static/fonts/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjihdqrhw.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal; font-weight: 600;
+  src: url("/static/fonts/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjisltrhw.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal; font-weight: 700;
+  src: url("/static/fonts/vEFy2_tTDB4M7-auWDN0ahZJW3IX2ih5nk3AucvUHf6OAVIJmeUDygwjivBtrhw.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic; font-weight: 400;
+  src: url("/static/fonts/vEF02_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US2D2QYxoUKIkn98pRl9dCw.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic; font-weight: 600;
+  src: url("/static/fonts/vEF02_tTDB4M7-auWDN0ahZJW1ge6NmXpVAHV83Bfb_US2D2QYxoUKIkn98pmFhdCw.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal; font-weight: 400;
+  src: url("/static/fonts/H4cyBXePl9DZ0Xe7gG9cyOj7uK2-n-D2rd4FY7SCqyWv.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal; font-weight: 700;
+  src: url("/static/fonts/H4cyBXePl9DZ0Xe7gG9cyOj7uK2-n-D2rd4FY7RlrCWv.ttf") format("truetype");
+}
+
 // Typography refinements for Source Serif 4 + Noto Serif SC
 
 body {
