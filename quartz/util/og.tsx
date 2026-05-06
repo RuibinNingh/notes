@@ -14,7 +14,6 @@ import { createHash } from "crypto"
 
 const defaultHeaderWeight = [700]
 const defaultBodyWeight = [400]
-const cjkSansFont = "Noto Sans SC"
 const cjkSerifFont = "Noto Serif SC"
 const defaultOgFontText =
   "Ruibin 的数字花园我的博客分钟阅读年月日0123456789#:-_/.,abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -62,9 +61,8 @@ export async function getSatoriFonts(
   })
 
   const cjkFontPromises = [
-    { name: cjkSansFont, weight: 400 as FontWeight },
-    { name: cjkSansFont, weight: 700 as FontWeight },
     { name: cjkSerifFont, weight: 400 as FontWeight },
+    { name: cjkSerifFont, weight: 700 as FontWeight },
   ].map(async ({ name, weight }) => {
     const data = await fetchTtf(name, weight, fontText)
     if (!data) return null
@@ -225,10 +223,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
 
   // Get tags if available
   const tags = fileData.frontmatter?.tags ?? []
-  const bodyFont = getFontSpecificationName(cfg.theme.typography.body)
-  const headerFont = getFontSpecificationName(cfg.theme.typography.header)
-  const sansFontFamily = `${headerFont}, ${cjkSansFont}`
-  const serifFontFamily = `${bodyFont}, ${cjkSerifFont}`
+  const fontFamily = `${getFontSpecificationName(cfg.theme.typography.body)}, ${cjkSerifFont}`
 
   return (
     <div
@@ -239,7 +234,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
         width: "100%",
         backgroundColor: cfg.theme.colors[colorScheme].light,
         padding: "2.5rem",
-        fontFamily: serifFontFamily,
+        fontFamily: fontFamily,
       }}
     >
       {/* Header Section */}
@@ -266,7 +261,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
             display: "flex",
             fontSize: 32,
             color: cfg.theme.colors[colorScheme].gray,
-            fontFamily: sansFontFamily,
+            fontFamily: fontFamily,
           }}
         >
           {cfg.baseUrl}
@@ -285,7 +280,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
           style={{
             margin: 0,
             fontSize: useSmallerFont ? 64 : 72,
-            fontFamily: sansFontFamily,
+            fontFamily: fontFamily,
             fontWeight: 700,
             color: cfg.theme.colors[colorScheme].dark,
             lineHeight: 1.2,
@@ -308,7 +303,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
           fontSize: 36,
           color: cfg.theme.colors[colorScheme].darkgray,
           lineHeight: 1.4,
-          fontFamily: serifFontFamily,
+          fontFamily: fontFamily,
         }}
       >
         <p
@@ -344,7 +339,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
             gap: "2rem",
             color: cfg.theme.colors[colorScheme].gray,
             fontSize: 28,
-            fontFamily: sansFontFamily,
+            fontFamily: fontFamily,
           }}
         >
           {date && (
@@ -400,7 +395,7 @@ export const defaultImage: SocialImageOptions["imageStructure"] = ({
                 color: cfg.theme.colors[colorScheme].secondary,
                 borderRadius: "10px",
                 fontSize: 24,
-                fontFamily: sansFontFamily,
+                fontFamily: fontFamily,
               }}
             >
               #{tag}

@@ -23,11 +23,11 @@ const config: QuartzConfig = {
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
-      cdnCaching: true,
+      cdnCaching: false,
       typography: {
-        header: "Inter",
+        header: "Source Serif 4",
         body: "Source Serif 4",
-        code: "JetBrains Mono",
+        code: { name: "Noto Serif SC", weights: [400, 700] },
       },
       colors: {
         lightMode: {
