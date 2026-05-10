@@ -71,7 +71,7 @@ article h6 {
 
 article strong,
 article b {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 /* Blockquotes */
@@ -94,13 +94,19 @@ article code:not(pre code) {
 
 /* Table headers */
 article th {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
 }
 
 /* Sidebar Explorer tree */
 .explorer {
   font-size: 0.9rem;
+}
+
+/* Fix: folder titles use 600 which Noto Serif SC lacks, causing faux bold */
+.folder-container div > a,
+.folder-container div > button span {
+  font-weight: 400;
 }
 
 /* Display math */

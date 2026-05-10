@@ -8,7 +8,7 @@
 
 | 项 | 数量 |
 |---|---|
-| 累计变更会话 | 6 |
+| 累计变更会话 | 7 |
 | 高风险修复 | 0 |
 | 中风险修复 | 3 |
 | 新增功能 | 1 |
@@ -26,3 +26,4 @@
 | 2026-05-05 | [2026-05-05_single-line-display-math](2026-05-05_single-line-display-math.md) | 修复行尾单行 `$$...$$` 公式块粘连上一段的问题 |
 | 2026-05-05 | [2026-05-05_inline-katex-centering](2026-05-05_inline-katex-centering.md) | 修复含行内公式的普通段落被误居中的问题 |
 | 2026-05-06 | [2026-05-06-unified-serif-fonts](2026-05-06-unified-serif-fonts.md) | 统一全站衬线字体，离线化加载，清理冗余 CSS |
+| 2026-05-10 | [2026-05-10-explorer-font-weight-fix](2026-05-10-explorer-font-weight-fix.md) | 修复左侧目录字体粗细不均及中文伪粗体问题 |
