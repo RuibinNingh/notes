@@ -8,10 +8,10 @@
 
 | 项 | 数量 |
 |---|---|
-| 累计变更会话 | 7 |
+| 累计变更会话 | 8 |
 | 高风险修复 | 0 |
-| 中风险修复 | 3 |
-| 新增功能 | 1 |
+| 中风险修复 | 4 |
+| 新增功能 | 2 |
 | 文档重构 | 1 |
 
 ---
@@ -27,3 +27,4 @@
 | 2026-05-05 | [2026-05-05_inline-katex-centering](2026-05-05_inline-katex-centering.md) | 修复含行内公式的普通段落被误居中的问题 |
 | 2026-05-06 | [2026-05-06-unified-serif-fonts](2026-05-06-unified-serif-fonts.md) | 统一全站衬线字体，离线化加载，清理冗余 CSS |
 | 2026-05-10 | [2026-05-10-explorer-font-weight-fix](2026-05-10-explorer-font-weight-fix.md) | 修复左侧目录字体粗细不均及中文伪粗体问题 |
+| 2026-06-24 | [2026-06-24-multiplication-formula-and-modified-date](2026-06-24-multiplication-formula-and-modified-date.md) | 修复乘法公式 LaTeX 渲染；页面同时显示创建/修改时间 |
