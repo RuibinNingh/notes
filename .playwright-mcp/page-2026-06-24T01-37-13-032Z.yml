@@ -1,0 +1,533 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - heading "Ruibin_Ningh的数字花园" [level=2] [ref=e5]:
+      - link "Ruibin_Ningh的数字花园" [ref=e6] [cursor=pointer]:
+        - /url: ../..
+    - generic [ref=e7]:
+      - button "Search 搜索" [ref=e10] [cursor=pointer]:
+        - img "Search" [ref=e11]
+        - paragraph [ref=e15]: 搜索
+      - button "暗色模式" [ref=e17] [cursor=pointer]:
+        - img "暗色模式" [ref=e18]
+      - button "阅读模式" [ref=e21] [cursor=pointer]:
+        - img "阅读模式" [ref=e22]
+    - generic [ref=e25]:
+      - button "探索" [expanded] [ref=e26] [cursor=pointer]:
+        - heading "探索" [level=2] [ref=e27]
+        - img [ref=e28]
+      - group [ref=e29]:
+        - list [ref=e30]:
+          - listitem [ref=e31]:
+            - generic [ref=e32]:
+              - img [ref=e33] [cursor=pointer]
+              - link "方法" [ref=e35] [cursor=pointer]:
+                - /url: ../../方法/
+          - listitem [ref=e36]:
+            - generic [ref=e37]:
+              - img [ref=e38] [cursor=pointer]
+              - link "化学" [ref=e40] [cursor=pointer]:
+                - /url: ../../化学/
+          - listitem [ref=e41]:
+            - generic [ref=e42]:
+              - img [ref=e43] [cursor=pointer]
+              - link "数学" [ref=e45] [cursor=pointer]:
+                - /url: ../../数学/
+            - list [ref=e47]:
+              - listitem [ref=e48]:
+                - generic [ref=e49]:
+                  - img [ref=e50] [cursor=pointer]
+                  - link "初高衔接" [ref=e52] [cursor=pointer]:
+                    - /url: ../../数学/初高衔接/
+                - list [ref=e54]:
+                  - listitem [ref=e55]:
+                    - link "乘法公式" [ref=e56] [cursor=pointer]:
+                      - /url: ../../数学/初高衔接/乘法公式
+                  - listitem [ref=e57]:
+                    - link "因式分解-主元法" [ref=e58] [cursor=pointer]:
+                      - /url: ../../数学/初高衔接/因式分解-主元法
+              - listitem [ref=e59]:
+                - generic [ref=e60]:
+                  - img [ref=e61] [cursor=pointer]
+                  - link "初中" [ref=e63] [cursor=pointer]:
+                    - /url: ../../数学/初中/
+          - listitem [ref=e64]:
+            - generic [ref=e65]:
+              - img [ref=e66] [cursor=pointer]
+              - link "物理" [ref=e68] [cursor=pointer]:
+                - /url: ../../物理/
+          - listitem [ref=e69]
+  - generic [ref=e70]:
+    - generic [ref=e72]:
+      - navigation "breadcrumbs" [ref=e73]:
+        - generic [ref=e74]:
+          - link "Home" [ref=e75] [cursor=pointer]:
+            - /url: ../../
+          - paragraph [ref=e76]: ❯
+        - generic [ref=e77]:
+          - link "数学" [ref=e78] [cursor=pointer]:
+            - /url: ../../数学/
+          - paragraph [ref=e79]: ❯
+        - generic [ref=e80]:
+          - link "初高衔接" [ref=e81] [cursor=pointer]:
+            - /url: ../../数学/初高衔接/
+          - paragraph [ref=e82]: ❯
+        - link "因式分解 主元法" [ref=e84] [cursor=pointer]:
+          - /url: ""
+      - heading "因式分解-主元法" [level=1] [ref=e85]
+      - paragraph [ref=e86]:
+        - generic [ref=e87]:
+          - text: 创建于
+          - time [ref=e88]: 2026年5月10日
+          - text: ","
+        - generic [ref=e89]:
+          - text: 修改于
+          - time [ref=e90]: 2026年6月24日
+          - text: ","
+        - text: 3分钟阅读
+      - list [ref=e91]:
+        - listitem [ref=e92]:
+          - link "#因式分解" [ref=e93] [cursor=pointer]:
+            - /url: ../../tags/因式分解
+    - article [ref=e94]:
+      - paragraph [ref=e95]: 主元法是一种暂时把多元问题看成关于一个变量的 本质上它是在二次式里找了个好欺负的变量当未知数,其他暂时当成常数处理
+      - heading "前言" [level=2] [ref=e96]:
+        - text: 前言
+        - link [ref=e97] [cursor=pointer]:
+          - /url: "#前言"
+          - img [ref=e98]
+      - paragraph [ref=e101]: 作者为初三生,为了理解方便进行了多余的假设,如果你明白因式定理可以进行更高端的证明
+      - heading "什么是主元法" [level=2] [ref=e102]:
+        - text: 什么是主元法
+        - link [ref=e103] [cursor=pointer]:
+          - /url: "#什么是主元法"
+          - img [ref=e104]
+      - paragraph [ref=e107]: 对于一个含多个变量的多项式,将其中一个变量设为未知数,其他暂时当做常数处理
+      - heading "运用:求根公式" [level=2] [ref=e108]:
+        - text: 运用:求根公式
+        - link [ref=e109] [cursor=pointer]:
+          - /url: "#运用求根公式"
+          - img [ref=e110]
+      - paragraph [ref=e113]:
+        - text: 对于一个二次式
+        - generic [ref=e115]:
+          - generic [ref=e116]:
+            - text: a
+            - generic [ref=e117]:
+              - text: x
+              - generic [ref=e122]: "2"
+            - text: +
+          - generic [ref=e123]: bx +
+          - generic [ref=e124]: c
+        - text: ", 我们可以假令其为0,这样就变成了一个一元二次方程"
+      - paragraph [ref=e125]:
+        - text: 于是可以求出根
+        - generic [ref=e128]:
+          - generic [ref=e129]:
+            - text: x
+            - generic [ref=e134]: "1"
+          - text: ","
+          - generic [ref=e138]:
+            - text: x
+            - generic [ref=e143]: "2"
+        - text: ",进而这个二次方程可以写作"
+        - generic [ref=e148]:
+          - generic [ref=e149]: a(x −
+          - generic [ref=e150]:
+            - generic [ref=e151]:
+              - text: x
+              - generic [ref=e156]: "1"
+            - text: )(x −
+          - generic [ref=e160]:
+            - generic [ref=e161]:
+              - text: x
+              - generic [ref=e166]: "2"
+            - text: )
+        - text: 由于我们假令二次式为 0 ,因此
+      - generic [ref=e172]:
+        - generic [ref=e173]:
+          - text: a
+          - generic [ref=e174]:
+            - text: x
+            - generic [ref=e179]: "2"
+          - text: +
+        - generic [ref=e180]: bx +
+        - generic [ref=e181]: c =
+        - generic [ref=e182]: a(x −
+        - generic [ref=e183]:
+          - generic [ref=e184]:
+            - text: x
+            - generic [ref=e189]: "1"
+          - text: )(x −
+        - generic [ref=e193]:
+          - generic [ref=e194]:
+            - text: x
+            - generic [ref=e199]: "2"
+          - text: )
+      - paragraph [ref=e203]:
+        - text: 你会发现,让这个二次式为0是多余的,因此对于任意有解的二次式,都可以分解为
+        - generic [ref=e205]:
+          - generic [ref=e206]: a(x −
+          - generic [ref=e207]:
+            - generic [ref=e208]:
+              - text: x
+              - generic [ref=e213]: "1"
+            - text: )(x −
+          - generic [ref=e217]:
+            - generic [ref=e218]:
+              - text: x
+              - generic [ref=e223]: "2"
+            - text: )
+        - text: 的形式.这就是主元法
+      - heading "例子" [level=3] [ref=e227]:
+        - text: 例子
+        - link [ref=e228] [cursor=pointer]:
+          - /url: "#例子"
+          - img [ref=e229]
+      - paragraph [ref=e232]: 考虑一个这样的整式
+      - generic [ref=e235]:
+        - generic [ref=e236]:
+          - generic [ref=e237]:
+            - text: x
+            - generic [ref=e242]: "4"
+          - text: +
+        - generic [ref=e243]:
+          - generic [ref=e244]:
+            - text: m
+            - generic [ref=e249]: "2"
+          - text: +
+        - generic [ref=e250]:
+          - text: "2"
+          - generic [ref=e251]:
+            - text: x
+            - generic [ref=e256]: "2"
+          - text: m +
+        - generic [ref=e257]: m +
+        - generic [ref=e258]: x
+      - paragraph [ref=e259]: 进行因式分解.
+      - paragraph [ref=e260]:
+        - text: 我们把
+        - generic [ref=e263]: m
+        - text: 当成未知数,整理可得
+      - generic [ref=e266]:
+        - generic [ref=e267]:
+          - generic [ref=e268]:
+            - text: m
+            - generic [ref=e273]: "2"
+          - text: +
+        - generic [ref=e274]:
+          - text: (2
+          - generic [ref=e275]:
+            - text: x
+            - generic [ref=e280]: "2"
+          - text: +
+        - generic [ref=e281]: 1)m +
+        - generic [ref=e282]:
+          - text: (
+          - generic [ref=e283]:
+            - text: x
+            - generic [ref=e288]: "4"
+          - text: +
+        - generic [ref=e289]: x)
+      - paragraph [ref=e290]: 这是一个标准的二次三项式,
+      - list [ref=e291]:
+        - listitem [ref=e292]:
+          - generic [ref=e294]:
+            - generic [ref=e295]: a =
+            - generic [ref=e296]: "1"
+        - listitem [ref=e297]:
+          - generic [ref=e299]:
+            - generic [ref=e300]: b =
+            - generic [ref=e301]:
+              - text: "2"
+              - generic [ref=e302]:
+                - text: x
+                - generic [ref=e307]: "2"
+              - text: +
+            - generic [ref=e308]: "1"
+        - listitem [ref=e309]:
+          - generic [ref=e311]:
+            - generic [ref=e312]: c =
+            - generic [ref=e313]:
+              - generic [ref=e314]:
+                - text: x
+                - generic [ref=e319]: "4"
+              - text: +
+            - generic [ref=e320]: x
+          - text: 那么可得
+      - generic [ref=e326]:
+        - generic [ref=e331]: Δ
+        - generic [ref=e338]:
+          - generic [ref=e339]:
+            - text: = (2
+            - generic [ref=e340]:
+              - text: x
+              - generic [ref=e345]: "2"
+            - text: + 1
+            - generic [ref=e346]:
+              - text: )
+              - generic [ref=e351]: "2"
+            - text: − 4(
+            - generic [ref=e352]:
+              - text: x
+              - generic [ref=e357]: "4"
+            - text: + x)
+          - generic [ref=e358]:
+            - text: = 4
+            - generic [ref=e359]:
+              - text: x
+              - generic [ref=e364]: "2"
+            - text: − 4x + 1
+          - generic [ref=e365]:
+            - text: = (2x − 1
+            - generic [ref=e366]:
+              - text: )
+              - generic [ref=e371]: "2"
+      - paragraph [ref=e375]:
+        - text: 开方后得到
+        - generic [ref=e377]:
+          - generic [ref=e378]: 2x −
+          - generic [ref=e379]: "1"
+        - text: 当然为了严谨,也可以说得到
+        - generic [ref=e383]: ∣2x − 1∣
+        - text: 不过求根公式里面有±,因此对结果无影响
+      - generic [ref=e389]:
+        - generic [ref=e393]:
+          - generic [ref=e394]: m
+          - generic [ref=e396]:
+            - text: m
+            - generic [ref=e401]: "1"
+          - generic [ref=e406]:
+            - text: m
+            - generic [ref=e411]: "2"
+        - generic [ref=e421]:
+          - generic [ref=e422]:
+            - text: =
+            - generic [ref=e427]:
+              - generic [ref=e428]: 2a
+              - generic [ref=e430]:
+                - text: −b ±
+                - generic [ref=e434]:
+                  - generic [ref=e435]: Δ
+                  - img [ref=e437]
+          - generic [ref=e445]:
+            - text: =
+            - generic [ref=e450]:
+              - generic [ref=e451]: "2"
+              - generic [ref=e453]:
+                - text: −(2
+                - generic [ref=e454]:
+                  - text: x
+                  - generic [ref=e459]: "2"
+                - text: + 1) ± (2x − 1)
+          - generic [ref=e463]:
+            - text: = −
+            - generic [ref=e464]:
+              - text: x
+              - generic [ref=e469]: "2"
+            - text: − x
+          - generic [ref=e470]:
+            - text: = −
+            - generic [ref=e471]:
+              - text: x
+              - generic [ref=e476]: "2"
+            - text: + x − 1
+      - paragraph [ref=e480]:
+        - text: 因为
+        - generic [ref=e482]:
+          - generic [ref=e483]: a =
+          - generic [ref=e484]: "1"
+        - text: ", 所以"
+      - generic [ref=e490]:
+        - generic [ref=e495]:
+          - generic [ref=e496]:
+            - text: m
+            - generic [ref=e501]: "2"
+          - text: + (2
+          - generic [ref=e502]:
+            - text: x
+            - generic [ref=e507]: "2"
+          - text: + 1)m + (
+          - generic [ref=e508]:
+            - text: x
+            - generic [ref=e513]: "4"
+          - text: + x)
+        - generic [ref=e520]:
+          - generic [ref=e521]:
+            - text: = (m −
+            - generic [ref=e522]:
+              - text: m
+              - generic [ref=e527]: "1"
+            - text: )(m −
+            - generic [ref=e531]:
+              - text: m
+              - generic [ref=e536]: "2"
+            - text: )
+          - generic [ref=e540]:
+            - text: =
+            - generic [ref=e541]: (
+            - text: m − (−
+            - generic [ref=e542]:
+              - text: x
+              - generic [ref=e547]: "2"
+            - text: − x)
+            - generic [ref=e548]: )
+            - generic [ref=e549]: (
+            - text: m − (−
+            - generic [ref=e550]:
+              - text: x
+              - generic [ref=e555]: "2"
+            - text: + x − 1)
+            - generic [ref=e556]: )
+          - generic [ref=e557]:
+            - text: = (
+            - generic [ref=e558]:
+              - text: x
+              - generic [ref=e563]: "2"
+            - text: + x + m)(
+            - generic [ref=e564]:
+              - text: x
+              - generic [ref=e569]: "2"
+            - text: − x + m + 1)
+      - paragraph [ref=e573]: 看起来这么凶的式子瞬间变可爱了
+      - heading "运用:十字相乘" [level=2] [ref=e574]:
+        - text: 运用:十字相乘
+        - link [ref=e575] [cursor=pointer]:
+          - /url: "#运用十字相乘"
+          - img [ref=e576]
+      - heading "例子" [level=3] [ref=e579]:
+        - text: 例子
+        - link [ref=e580] [cursor=pointer]:
+          - /url: "#例子-1"
+          - img [ref=e581]
+      - paragraph [ref=e584]:
+        - text: 对于多项式
+        - generic [ref=e586]:
+          - generic [ref=e587]:
+            - generic [ref=e588]:
+              - text: x
+              - generic [ref=e593]: "2"
+            - text: +
+          - generic [ref=e594]: 2xy −
+          - generic [ref=e595]:
+            - text: "3"
+            - generic [ref=e596]:
+              - text: "y"
+              - generic [ref=e601]: "2"
+            - text: −
+          - generic [ref=e602]: 5x −
+          - generic [ref=e603]: 7y +
+          - generic [ref=e604]: "6"
+        - text: 进行因式分解
+      - paragraph [ref=e605]:
+        - text: 我们将
+        - generic [ref=e608]: x
+        - text: 视为主元 那么提公因式,可得
+      - generic [ref=e611]:
+        - generic [ref=e612]:
+          - generic [ref=e613]:
+            - text: x
+            - generic [ref=e618]: "2"
+          - text: +
+        - generic [ref=e619]:
+          - generic [ref=e620]: (2y − 5)
+          - text: x +
+        - generic [ref=e622]:
+          - generic [ref=e623]: (
+          - text: −3
+          - generic [ref=e624]:
+            - text: "y"
+            - generic [ref=e629]: "2"
+          - text: − 7y + 6
+          - generic [ref=e630]: )
+      - paragraph [ref=e631]:
+        - text: 注意到
+        - generic [ref=e633]:
+          - generic [ref=e634]:
+            - text: −3
+            - generic [ref=e635]:
+              - text: "y"
+              - generic [ref=e640]: "2"
+            - text: −
+          - generic [ref=e641]: 7y +
+          - generic [ref=e642]: "6"
+        - text: 可十字相乘,所以
+      - generic [ref=e648]:
+        - generic [ref=e653]: =
+        - generic [ref=e660]:
+          - generic [ref=e661]:
+            - generic [ref=e662]:
+              - text: x
+              - generic [ref=e667]: "2"
+            - text: +
+            - generic [ref=e668]: (2y − 5)
+            - text: x +
+            - generic [ref=e669]:
+              - generic [ref=e670]: (
+              - text: −3
+              - generic [ref=e671]:
+                - text: "y"
+                - generic [ref=e676]: "2"
+              - text: − 7y + 6
+              - generic [ref=e677]: )
+          - generic [ref=e678]:
+            - generic [ref=e679]:
+              - text: x
+              - generic [ref=e684]: "2"
+            - text: +
+            - generic [ref=e685]: (2y − 5)
+            - text: x +
+            - generic [ref=e686]: (y + 3)
+            - generic [ref=e687]: (−3y + 2)
+      - paragraph [ref=e691]: 再次十字相乘,得
+      - generic [ref=e697]:
+        - generic [ref=e701]:
+          - generic [ref=e702]: =
+          - generic [ref=e703]: =
+        - generic [ref=e710]:
+          - generic [ref=e711]:
+            - generic [ref=e712]:
+              - text: x
+              - generic [ref=e717]: "2"
+            - text: +
+            - generic [ref=e718]: (2y − 5)
+            - text: x +
+            - generic [ref=e719]:
+              - generic [ref=e720]: (
+              - text: −3
+              - generic [ref=e721]:
+                - text: "y"
+                - generic [ref=e726]: "2"
+              - text: − 7y + 6
+              - generic [ref=e727]: )
+          - generic [ref=e728]:
+            - generic [ref=e729]:
+              - text: x
+              - generic [ref=e734]: "2"
+            - text: +
+            - generic [ref=e735]: (2y − 5)
+            - text: x +
+            - generic [ref=e736]: (y + 3)
+            - generic [ref=e737]: (−3y + 2)
+          - generic [ref=e738]:
+            - generic [ref=e739]: (x − y − 3)
+            - generic [ref=e740]: (x + 3y − 2)
+    - separator [ref=e744]
+    - iframe [ref=e747]:
+      - generic [active] [ref=f3e1]:
+        - main [ref=f3e3]:
+          - generic [ref=f3e6]: 正在加载评论……
+        - alert [ref=f3e7]
+  - generic [ref=e749]:
+    - heading "关系图谱" [level=3] [ref=e750]
+    - button "Global Graph" [ref=e754] [cursor=pointer]:
+      - img [ref=e755]
+  - contentinfo [ref=e757]:
+    - paragraph [ref=e758]:
+      - text: Created with
+      - link "Quartz v4.5.2" [ref=e759] [cursor=pointer]:
+        - /url: https://quartz.jzhao.xyz/
+      - text: © 2026
+    - list [ref=e760]:
+      - listitem [ref=e761]:
+        - link "我的博客" [ref=e762] [cursor=pointer]:
+          - /url: https://www.ruibin-ningh.top
