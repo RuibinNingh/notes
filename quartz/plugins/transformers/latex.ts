@@ -174,11 +174,52 @@ function normalizeSingleLineDisplayMath() {
   }
 }
 
+/**
+ * Normalize display-math `$$` delimiters that are glued to adjacent content.
+ *
+ * remark-math's math-flow tokenizer only treats `$$` as a display fence when
+ * it sits alone on its own line. When `$$` is glued to content — e.g. an
+ * opening `$$\begin{cases}` or a closing `\end{cases}$$` — the opening `$$`
+ * consumes the glued text as "fence meta" (discarding it) and the closing
+ * `$$` is never recognized, so the block swallows every following line up to
+ * EOF (headings and paragraphs included) and surfaces as a red KaTeX
+ * ParseError.
+ *
+ * This runs before parsing and rewrites such blocks so both delimiters land on
+ * their own lines: `$$\begin{cases}…\end{cases}$$` becomes a clean fenced
+ * block. Fenced code blocks and inline code are skipped so literal `$$`
+ * inside code is left untouched. Already-well-formed blocks are unchanged
+ * (the transform is idempotent).
+ */
+function normalizeDisplayMathDelimiters(src: string): string {
+  if (!src.includes("$$")) {
+    return src
+  }
+
+  // Split out fenced code blocks (``` / ~~~) and inline code so literal `$$`
+  // inside them is never rewritten. The capturing group keeps the code spans
+  // in the result array; even indices are prose, odd indices are code.
+  const segments = src.split(/(```[\s\S]*?```|~~~[\s\S]*?~~~|`[^`\n]*`)/)
+  for (let i = 0; i < segments.length; i += 2) {
+    segments[i] = segments[i].replace(
+      /(^|\n)([ \t]*)\$\$([\s\S]*?)\$\$(?=[ \t]*(?:\n|$))/g,
+      (_match: string, lead: string, indent: string, body: string) => {
+        const content = body.replace(/^\n+/, "").replace(/\n+$/, "")
+        return `${lead}${indent}$$\n${content}\n$$`
+      },
+    )
+  }
+  return segments.join("")
+}
+
 export const Latex: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
   const engine = opts?.renderEngine ?? "katex"
   const macros = opts?.customMacros ?? {}
   return {
     name: "Latex",
+    textTransform(_ctx, src) {
+      return normalizeDisplayMathDelimiters(src)
+    },
     markdownPlugins() {
       return [remarkMath, normalizeSingleLineDisplayMath]
     },
