@@ -1,7 +1,7 @@
 ---
 title: cc自定义状态栏
 date: 2026-07-07
-tags: []
+tags: [Claude Code, 自定义, 状态栏]
 publish: true
 description: ""
 ---
